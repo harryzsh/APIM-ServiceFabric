@@ -1,7 +1,8 @@
 # How to integrate APIM with Service Fabric service
 
 To implement the following topology with APIM and Service Fabric
-![](\images\topology.png?raw=true)
+
+![](\images\Topology.png?raw=true)
 
 #### Perquisitions :
 - Service Fabric Cluster
@@ -10,7 +11,8 @@ To implement the following topology with APIM and Service Fabric
 
 
 1. Create a subnet within the VNET  where Service Fabric is deployed and then deploy APIM into the newly created subnet
-![](\images\VirtualNetwork.png?raw=true)
+
+![](images\VirtualNetwork.png?raw=true)
 
 2. Export the Service Fabric certificate from Azure Key Vault. If you have the certificate already, please skip this step
 
