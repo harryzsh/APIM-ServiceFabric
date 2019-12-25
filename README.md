@@ -1,7 +1,7 @@
 # How to integrate APIM with Service Fabric service
 
 To implement the following topology with APIM and Service Fabric
-![](Images\Topology.png?raw=true)
+![](\Images\Topology.png?raw=true)
 
 #### Perquisitions :
 - Service Fabric Cluster
@@ -10,7 +10,7 @@ To implement the following topology with APIM and Service Fabric
 
 
 1. Create a subnet within the VNET  where Service Fabric is deployed and then deploy APIM into the newly created subnet
-![](Images\VirtualNetwork.png?raw=true)
+![](\Images\VirtualNetwork.png?raw=true)
 
 2. Export the Service Fabric certificate from Azure Key Vault. If you have the certificate already, please skip this step
 
@@ -29,7 +29,7 @@ $pfxProtectedBytes = $pfx.Export([Security.Cryptography.X509Certificates.X509Con
 ```
 
 3. Upload the certificate to the client certificate blade of APIM
-![](Images\ClientCertBlade.png?raw=true)
+![](\Images\ClientCertBlade.png?raw=true)
 
 4. Import stateless service API into APIM by using swagger file
 ![](Images\ImportApi.png?raw=true)
@@ -81,10 +81,10 @@ Please note the URL is the service name of the stateless service. Replace the hi
 7. Now your APIM is configured with Service Fabric cluster.
 
 8. Try to invoke one of the operations from API in APIM and observe the trace log from APIM. You will see APIM is calling the management endpoint to get the stateless service parition information  (Service Fabric Naming service is resolving partition and return each replica endpoint). The URL that APIM calling is "https://harrysfcluster.southeastasia.cloudapp.azure.com:19080/Services/SFGetMyName/MyNameService/$/ResolvePartition?api-version=3.0&PartitionKeyType=1&timeout=60"(In my example)
-![](Images\ResolvePartition.png?raw=true)
+![](\Images\ResolvePartition.png?raw=true)
 
 We can invoke the get requesthttps://harrysfcluster.southeastasia.cloudapp.azure.com:19080/Services/SFGetMyName/MyNameService/$/ResolvePartition?api-version=3.0&PartitionKeyType=1&timeout=60  directly and observe the info that Service Fabric naming service returned 
-![](Images\NamingServiceResolveResult.png?raw=true)
+![](\Images\NamingServiceResolveResult.png?raw=true)
 
 APIM then choose one of the resolved replica endpoints and send request to service fabric.
-![](Images\APIMForwardRequest.png?raw=true)
+![](\Images\APIMForwardRequest.png?raw=true)
